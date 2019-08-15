@@ -1,1 +1,0 @@
-All Database files should be stored in this repo. This way, we can easily seperate our logic from database and frontend as well. 
