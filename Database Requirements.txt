@@ -1,0 +1,13 @@
+We would have an Admin Table
+Students Table.
+
+DatabaseName Scholarship System.
+
+Admin_Table
+
+Admin_ID
+Admin_Password
+Participants_ID
+// Email
+// PhoneNumber
+Result
