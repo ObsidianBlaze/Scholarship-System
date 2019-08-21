@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="stylesheet" href="css/bodystyle.css"/>
         <link rel="stylesheet" href="lib/w3.css"/>
+        <h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
     </h:head>
     <h:body>
 
@@ -20,13 +21,17 @@
         <span>
         <label>CHECK RESULT</label><hr/><br/>
         <!--Div to hold errors or page information for viewing result.-->
-        <div></div>
+        <div>#{validator.username}</div>
+        <!--Tag to display errors while viewing result.-->
+        <h:message for="username" styleClass="error"></h:message>
+        <br/><br/>
         
         <h:form>
-            <label class="w3-text-blue">Username:</label>
-            <h:inputText class="w3-input w3-animate-input" style="width: 60%"></h:inputText>
+            <h:outputLabel for="username" class="w3-text-blue">Username:</h:outputLabel>
+            <h:inputText id="username" class="w3-input w3-animate-input" value="#{validator.username}" required="true" requiredMessage="Kindly input your email or phone number." style="width: 60%"></h:inputText>
             <br/><br/>
-            <h:commandButton class="w3-button w3-hover-black w3-round" value="Check Result"/>
+            
+            <h:commandButton action="#{validator.check()}" class="w3-button w3-hover-black w3-round" value="Check Result"/>
         </h:form>
             <br/>
         <footer>NOTE: Please contact us if there is an error.</footer>
