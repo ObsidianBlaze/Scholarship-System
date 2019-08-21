@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Scholarship System</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="css/bodystyle.css"/>
+        <link rel="stylesheet" href="lib/w3.css"/>
+    </h:head>
+    <h:body>
+    <!--Main div that contains all contents-->
+    <div class="w3-container w3-top w3-mobile">
+    
+    <div class="w3-container w3-display-topleft w3-mobile">
+        <img src="images/niit2.jpg" alt="image"/>
+    </div>
+    <div class="w3-display-topright w3-mobile">
+        <span>
+        <label>ACCOUNT LOGIN</label><hr/><br/><br/>
+        <!--Div to hold errors or page information for viewing result.-->
+        <div></div>
+        
+        <h:form>
+            <label class="w3-text-blue">Username:</label>
+            <h:inputText class="w3-input w3-animate-input" style="width:60%"></h:inputText>
+            <br/>
+            <label class="w3-text-blue">Password:</label>
+            <h:inputSecret class="w3-input w3-animate-input" style="width: 60%"></h:inputSecret>
+            <br/><br/>
+            <h:commandButton class="w3-button w3-hover-black w3-round" value="Login"/>
+        </h:form>
+            <br/>
+        <footer>NOTE: Please contact us if there is an error.</footer>
+        </span>
+    </div>
+    
+    </div>
+    </h:body>
+</html>
+
