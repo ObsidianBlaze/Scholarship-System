@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 22, 2019 3:41:20 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.validatorbean.ParticipantsInfo" table="participants_info" catalog="scholarship_system" optimistic-lock="version">
+        <id name="participantsId" type="java.lang.Integer">
+            <column name="Participants_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="firstName" type="string">
+            <column name="First_Name" length="30" not-null="true">
+                <comment>Participants First_Name.</comment>
+            </column>
+        </property>
+        <property name="lastName" type="string">
+            <column name="Last_Name" length="30" not-null="true">
+                <comment>Participants Last_Name</comment>
+            </column>
+        </property>
+        <property name="gender" type="char">
+            <column name="Gender" length="1" not-null="true">
+                <comment>Participants Gender.</comment>
+            </column>
+        </property>
+        <property name="phoneNumber" type="string">
+            <column name="Phone_Number" length="11" not-null="true">
+                <comment>Participants Phone_Number</comment>
+            </column>
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="30" not-null="true">
+                <comment>Participants Email_Address.</comment>
+            </column>
+        </property>
+        <property name="dob" type="date">
+            <column name="DOB" length="10" not-null="true">
+                <comment>Date of Birth of Participants.</comment>
+            </column>
+        </property>
+        <property name="examTime" type="string">
+            <column name="Exam_Time" length="15" not-null="true">
+                <comment>Time of exam. I.E Noon, Morning or Evening.</comment>
+            </column>
+        </property>
+        <property name="centre" type="string">
+            <column name="Centre" length="20" not-null="true">
+                <comment>Center of the exam</comment>
+            </column>
+        </property>
+        <property name="passport" type="binary">
+            <column name="Passport" not-null="true">
+                <comment>Participants passport.</comment>
+            </column>
+        </property>
+        <set name="resultTables" table="result_table" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Participants_ID" not-null="true" />
+            </key>
+            <one-to-many class="com.validatorbean.ResultTable" />
+        </set>
+    </class>
+</hibernate-mapping>

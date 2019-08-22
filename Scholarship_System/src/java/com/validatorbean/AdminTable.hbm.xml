@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 22, 2019 3:41:20 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.validatorbean.AdminTable" table="admin_table" catalog="scholarship_system" optimistic-lock="version">
+        <id name="adminId" type="java.lang.Integer">
+            <column name="Admin_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="adminPassword" type="string">
+            <column name="Admin_Password" length="20" not-null="true" />
+        </property>
+        <set name="resultTables" table="result_table" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Admin_ID" not-null="true" />
+            </key>
+            <one-to-many class="com.validatorbean.ResultTable" />
+        </set>
+    </class>
+</hibernate-mapping>
