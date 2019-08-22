@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2019 at 06:10 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Generation Time: Aug 22, 2019 at 05:03 AM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -75,15 +75,16 @@ INSERT INTO `participants_info` (`Participants_ID`, `First_Name`, `Last_Name`, `
 CREATE TABLE `result_table` (
   `Admin_ID` int(11) NOT NULL,
   `Participants_ID` int(11) NOT NULL,
-  `Result` varchar(20) NOT NULL
+  `Result` varchar(20) NOT NULL,
+  `Results_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `result_table`
 --
 
-INSERT INTO `result_table` (`Admin_ID`, `Participants_ID`, `Result`) VALUES
-(1, 1, 'Excellent');
+INSERT INTO `result_table` (`Admin_ID`, `Participants_ID`, `Result`, `Results_ID`) VALUES
+(1, 1, 'Excellent', 1);
 
 --
 -- Indexes for dumped tables
@@ -102,6 +103,14 @@ ALTER TABLE `participants_info`
   ADD PRIMARY KEY (`Participants_ID`);
 
 --
+-- Indexes for table `result_table`
+--
+ALTER TABLE `result_table`
+  ADD PRIMARY KEY (`Results_ID`),
+  ADD KEY `Participants_ID` (`Participants_ID`),
+  ADD KEY `Admin_ID` (`Admin_ID`) USING BTREE;
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -116,6 +125,23 @@ ALTER TABLE `admin_table`
 --
 ALTER TABLE `participants_info`
   MODIFY `Participants_ID` int(1) NOT NULL AUTO_INCREMENT COMMENT 'Participants Unique identity number.', AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `result_table`
+--
+ALTER TABLE `result_table`
+  MODIFY `Results_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `result_table`
+--
+ALTER TABLE `result_table`
+  ADD CONSTRAINT `result_table_ibfk_1` FOREIGN KEY (`Admin_ID`) REFERENCES `admin_table` (`Admin_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `result_table_ibfk_2` FOREIGN KEY (`Participants_ID`) REFERENCES `participants_info` (`Participants_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
