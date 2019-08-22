@@ -1,45 +1,113 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
         <title>Scholarship System</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="stylesheet" href="css/bodystyle.css"/>
-        <link rel="stylesheet" href="lib/w3.css"/>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!--===============================================================================================-->	
+        <h:outputStylesheet library="images/icons" name="favicon.ico"></h:outputStylesheet>
+<!--===============================================================================================-->
+        <h:outputStylesheet library="vendor/bootstrap/css" name="bootstrap.min.css"></h:outputStylesheet>
+<!--===============================================================================================-->
+        <h:outputStylesheet library="fonts/font-awesome/css" name="font-awesome.min.css"></h:outputStylesheet>
+<!--===============================================================================================-->
+        <h:outputStylesheet library="fonts/Linearicons-Free" name="icon-font.min.css"></h:outputStylesheet>
+<!--===============================================================================================-->
+        <h:outputStylesheet library="vendor/animate" name="animate.css"></h:outputStylesheet>
+<!--===============================================================================================-->	
+        <h:outputStylesheet library="vendor/css-hamburgers" name="hamburgers.min.css"></h:outputStylesheet>
+<!--===============================================================================================-->
+        <h:outputStylesheet library="vendor/animsition/css" name="animsition.min.css"></h:outputStylesheet>
+<!--===============================================================================================-->
+        <h:outputStylesheet library="vendor/select2" name="select2.min.css"></h:outputStylesheet>
+<!--===============================================================================================-->	
+        <h:outputStylesheet library="vendor/daterangepicker" name="daterangepicker.css"></h:outputStylesheet>
+<!--===============================================================================================-->
+        <h:outputStylesheet library="css" name="util.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="main.css"></h:outputStylesheet>
+<!--===============================================================================================-->
         <h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
     </h:head>
     <h:body>
 
     <!--Main div that contains all contents-->
-    <div class="w3-container w3-top w3-mobile">
-    
-       <div class="w3-container w3-display-topleft w3-mobile">
-        <img src="images/niit2.jpg" alt="image"></img>
-       </div>
-    <div class="w3-display-topright w3-mobile">
-        <span>
-        <label>CHECK RESULT</label><hr/><br/>
-        <!--Div to hold errors or page information for viewing result.-->
-        <div>#{validator.username}</div>
-        <!--Tag to display errors while viewing result.-->
-        <h:message for="username" styleClass="error"></h:message>
-        <br/><br/>
-        
-        <h:form>
-            <h:outputLabel for="username" class="w3-text-blue">Username:</h:outputLabel>
-            <h:inputText id="username" class="w3-input w3-animate-input" value="#{validator.username}" required="true" requiredMessage="Kindly input your email or phone number." style="width: 60%"></h:inputText>
-            <br/><br/>
-            
-            <h:commandButton action="#{validator.check()}" class="w3-button w3-hover-black w3-round" value="Check Result"/>
-        </h:form>
-            <br/>
-        <footer>NOTE: Please contact us if there is an error.</footer>
-        </span>
-    </div>
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<h:form class="login100-form validate-form">
+					<span class="login100-form-title p-b-34">
+						Account Login
+					</span>
+					
+					<div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Enter Email or Phone number">
+                                            <h:inputText id="first-name" styleClass="input100" p:placeholder="Phone number or Email">
+                                                <c:attribute name="name" value="uservalidate"/>
+                                                </h:inputText>
+						<span class="focus-input100"></span>
+					</div>
 
-    </div>
 
+					
+					<div class="container-login100-form-btn">
+						<h:commandButton action="#{validator.check()}"  class="login100-form-btn" value="Check result"/>					
+					</div>
+
+					<div class="w-full text-center p-t-27 p-b-239">
+						<span class="txt1">
+							NOTE: Please contact us incase you have difficulty logining in
+						</span>
+
+<!--
+						<a href="#" class="txt2">
+							User name / password?
+						</a>
+-->
+					</div>
+
+<!--
+					<div class="w-full text-center">
+						<a href="#" class="txt3">
+							Sign Up
+						</a>
+					</div>
+-->
+				</h:form>
+
+				<div class="login100-more" style="background-image: url('images/niit2.jpg');"></div>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
     </h:body>
 </html>
 

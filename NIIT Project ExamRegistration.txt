@@ -1,0 +1,46 @@
+GIT
+
+Registration
+
+
+Name Scholarship System
+
+
+Name, Address, Sex, Phone-Number, E-mail, Age, Time to take the exam, Centre, Password
+
+During registration username = email and password
+
+
+
+
+SYSTEM REQUIREMENT
+
+
+FUNCTIONAL REQUIREMENT
+
+
+BUSINESS PLAN
+
+
+FRONT END
+PEACE
+SAMUEL
+FAROUQE
+
+
+BACKEND
+TIMI
+MIKE
+OLA
+TUNDE
+Osas
+
+
+
+Languauge to use Java
+
+JSF, Hibernate, Spring, W3-CSS, BOOTSTRAP
+
+
+
+DEADLINE ==> 1 MONTH(AUGUST ENDING).
